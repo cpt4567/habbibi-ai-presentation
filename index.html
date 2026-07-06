@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 구독 서비스 통합 관리 방안 | (주)하비비 커뮤니케이션</title>
+    <link rel="stylesheet" href="deck.css" />
+  </head>
+  <body>
+    <div class="progress" id="progress"></div>
+    <div class="nav-hint">← → 이동 · F 전체화면 · ⌘P PDF 저장</div>
+
+    <main class="deck" id="deck">
+      <!-- 01 표지 -->
+      <section class="slide slide--brand active" data-slide="1">
+        <div class="hero-glow"></div>
+        <div class="brand-cover">
+          <div class="brand-logo-frame">
+            <img
+              src="logo-vertical.svg"
+              alt="THANKQ CAMPING"
+              class="brand-logo--vertical"
+            />
+          </div>
+          <h1 class="title title--cover">AI 구독 서비스 통합 관리 방안</h1>
+          <p class="subtitle">
+            법인카드 일괄결제 · Workspace 통합 · 결제 주기 정책
+          </p>
+          <p class="cover-meta">
+            (주)하비비 커뮤니케이션 · 2026.07
+          </p>
+        </div>
+        <footer class="footer-note">
+          <span>1 / 16</span>
+        </footer>
+      </section>
+
+      <!-- 02 배경 -->
+      <section class="slide" data-slide="2">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Background</p>
+            <h2 class="title">현황 및 배경</h2>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="grid-3">
+            <article class="card">
+              <p class="label">Pain 01</p>
+              <p class="metric">8건</p>
+              <h3>분산 결제</h3>
+              <p>플랫폼·개인별 영수증 수집과 월말 대조</p>
+            </article>
+            <article class="card">
+              <p class="label">Pain 02</p>
+              <p class="metric">0%</p>
+              <h3>통합 관리 부재</h3>
+              <p>누가 무엇을 쓰는지 한눈에 파악 어려움</p>
+            </article>
+            <article class="card">
+              <p class="label">Pain 03</p>
+              <p class="metric">Risk</p>
+              <h3>퇴사·회수 지연</h3>
+              <p>개인 계정·결제 정보에 묶이는 구조</p>
+            </article>
+          </div>
+          <div class="flow" style="margin-top: 18px">
+            <div class="flow__step flow__step--bad">
+              <p class="flow__num">AS-IS</p>
+              <h4>개인카드 선결제</h4>
+              <p>8계정 · 8청구 · 사후정산</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step">
+              <p class="flow__num">문제</p>
+              <h4>영수증 대조</h4>
+              <p>월말 수집·환급 처리</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step flow__step--good">
+              <p class="flow__num">TO-BE</p>
+              <h4>법인카드 일괄</h4>
+              <p>5청구 · Workspace 통합</p>
+            </div>
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>2 / 16</span></footer>
+      </section>
+
+      <!-- 03 현황 -->
+      <section class="slide" data-slide="3">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Status</p>
+            <h2 class="title">구독 현황 — 총 8 seat</h2>
+            <p class="subtitle">전 플랫폼 Pro 수준으로 충분. 팀/비즈니스는 법인 관리 목적일 때만 채택.</p>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="table-wrap">
+            <table class="detailed">
+              <thead>
+                <tr>
+                  <th>플랫폼</th>
+                  <th>부서</th>
+                  <th>seat</th>
+                  <th>개인 플랜</th>
+                  <th>권장 플랜</th>
+                  <th>월 단가</th>
+                  <th>월 소계</th>
+                  <th>Admin</th>
+                  <th>청구</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="platform-cell"><img src="logos/openai.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>ChatGPT</strong><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="plan-link" title="OpenAI ChatGPT 요금">openai.com/chatgpt/pricing ↗</a></div></td>
+                  <td>개발팀 (백엔드)</td>
+                  <td class="num">3</td>
+                  <td>Plus $20</td>
+                  <td>Business</td>
+                  <td class="num">$25</td>
+                  <td class="num num--strong">$75</td>
+                  <td><span class="tag tag--yes">중앙</span></td>
+                  <td class="num">1건</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/cursor.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Cursor</strong><a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Cursor 요금">cursor.com/pricing ↗</a></div></td>
+                  <td>개발팀 (프론트)</td>
+                  <td class="num">2</td>
+                  <td>Pro $20</td>
+                  <td>Teams Standard</td>
+                  <td class="num">$40</td>
+                  <td class="num num--strong">$80</td>
+                  <td><span class="tag tag--yes">중앙</span></td>
+                  <td class="num">1건</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/genspark.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Genspark</strong><a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="plan-link" title="Genspark 멤버십 요금">genspark.ai/membership ↗</a></div></td>
+                  <td>마케팅</td>
+                  <td class="num">1</td>
+                  <td>Plus $25</td>
+                  <td>Plus (법인)</td>
+                  <td class="num">$25</td>
+                  <td class="num num--strong">$25</td>
+                  <td><span class="tag tag--partial">수동</span></td>
+                  <td class="num">1건</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/claude.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Claude</strong><a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Anthropic Claude 요금">anthropic.com/pricing ↗</a></div></td>
+                  <td>기획</td>
+                  <td class="num">2</td>
+                  <td>Pro $20</td>
+                  <td>Pro (법인)</td>
+                  <td class="num">$20</td>
+                  <td class="num num--strong">$40</td>
+                  <td><span class="tag tag--partial">수동</span></td>
+                  <td class="num">2건</td>
+                </tr>
+                <tr class="total">
+                  <td>합계</td>
+                  <td>—</td>
+                  <td class="num">8</td>
+                  <td colspan="2">전부 개인 플랜 $165/월</td>
+                  <td class="num">—</td>
+                  <td class="num num--strong">$220/월</td>
+                  <td>2+2</td>
+                  <td class="num">5건</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="chart-note">환율 ₩1,400/USD · 권장안 월 ₩308,000 · 전부 개인 플랜 대비 +$55/월 (+33%) — Admin·청구 통합 비용</p>
+          <nav class="pricing-links" aria-label="공식 요금 페이지">
+            <span class="pricing-links__label">요금제</span>
+            <a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/openai.svg" alt="" />ChatGPT</a>
+            <a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/cursor.svg" alt="" />Cursor</a>
+            <a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/genspark.svg" alt="" />Genspark</a>
+            <a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/claude.svg" alt="" />Claude</a>
+          </nav>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>3 / 16</span></footer>
+      </section>
+
+      <!-- 04 가격 비교 -->
+      <section class="slide slide--dense" data-slide="4">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Pricing</p>
+            <h2 class="title">플랫폼별 월간 단가 — Pro vs Business/Teams</h2>
+            <p class="subtitle">1인당 USD · 월간 결제 · 2026.07 공식 요금</p>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="table-wrap" style="margin-bottom:14px">
+            <table class="detailed">
+              <thead>
+                <tr>
+                  <th>플랫폼</th>
+                  <th>개인 Pro/Plus</th>
+                  <th>Business/Teams</th>
+                  <th>1인 차액</th>
+                  <th>하비비 seat</th>
+                  <th>Pro 소계</th>
+                  <th>권장 소계</th>
+                  <th>Workspace</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="platform-cell"><img src="logos/openai.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>ChatGPT</strong><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="plan-link" title="OpenAI ChatGPT 요금">openai.com/chatgpt/pricing ↗</a></div></td>
+                  <td class="num">Plus $20</td>
+                  <td class="num">Business $25</td>
+                  <td class="num">+$5</td>
+                  <td class="num">3</td>
+                  <td class="num">$60</td>
+                  <td class="num num--strong">$75</td>
+                  <td><span class="tag tag--yes">채택</span></td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/cursor.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Cursor</strong><a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Cursor 요금">cursor.com/pricing ↗</a></div></td>
+                  <td class="num">Pro $20</td>
+                  <td class="num">Teams $40</td>
+                  <td class="num">+$20</td>
+                  <td class="num">2</td>
+                  <td class="num">$40</td>
+                  <td class="num num--strong">$80</td>
+                  <td><span class="tag tag--yes">채택</span></td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/claude.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Claude</strong><a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Anthropic Claude 요금">anthropic.com/pricing ↗</a></div></td>
+                  <td class="num">Pro $20</td>
+                  <td class="num">Team $25 (5인↑)</td>
+                  <td class="num">—</td>
+                  <td class="num">2</td>
+                  <td class="num">$40</td>
+                  <td class="num num--strong">$40</td>
+                  <td><span class="tag tag--partial">Pro 유지</span></td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/genspark.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Genspark</strong><a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="plan-link" title="Genspark 멤버십 요금">genspark.ai/membership ↗</a></div></td>
+                  <td class="num">Plus $25</td>
+                  <td class="num">Team (Enterprise)</td>
+                  <td class="num">—</td>
+                  <td class="num">1</td>
+                  <td class="num">$25</td>
+                  <td class="num num--strong">$25</td>
+                  <td><span class="tag tag--partial">Pro 유지</span></td>
+                </tr>
+                <tr class="total">
+                  <td>합계</td>
+                  <td colspan="2">전부 개인 $165 · 권장 $220</td>
+                  <td class="num">+$55</td>
+                  <td class="num">8</td>
+                  <td class="num">$165</td>
+                  <td class="num num--strong">$220</td>
+                  <td>2 WS + 2 Pro</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="chart-legend">
+            <span><i class="legend-pro"></i>개인 Pro / Plus</span>
+            <span><i class="legend-biz"></i>Business / Teams</span>
+          </div>
+          <div class="price-chart">
+            <div class="price-chart__row">
+              <span class="price-chart__label"><img src="logos/openai.svg" alt="" class="platform-logo" />ChatGPT</span>
+              <div class="price-chart__bars">
+                <div class="bar bar--pro" style="--w: 29">Plus $20</div>
+                <div class="bar bar--biz" style="--w: 36">Business $25</div>
+              </div>
+            </div>
+            <div class="price-chart__row">
+              <span class="price-chart__label"><img src="logos/cursor.svg" alt="" class="platform-logo" />Cursor</span>
+              <div class="price-chart__bars">
+                <div class="bar bar--pro" style="--w: 29">Pro $20</div>
+                <div class="bar bar--biz" style="--w: 57">Teams $40</div>
+              </div>
+            </div>
+            <div class="price-chart__row">
+              <span class="price-chart__label"><img src="logos/claude.svg" alt="" class="platform-logo" />Claude</span>
+              <div class="price-chart__bars">
+                <div class="bar bar--pro" style="--w: 29">Pro $20</div>
+                <div class="bar bar--biz" style="--w: 36">Team $25</div>
+              </div>
+            </div>
+            <div class="price-chart__row">
+              <span class="price-chart__label"><img src="logos/genspark.svg" alt="" class="platform-logo" />Genspark</span>
+              <div class="price-chart__bars">
+                <div class="bar bar--pro" style="--w: 36">Plus $25</div>
+                <div class="bar bar--na" style="--w: 36">Team —</div>
+              </div>
+            </div>
+          </div>
+          <nav class="pricing-links" aria-label="공식 요금 페이지">
+            <span class="pricing-links__label">요금제</span>
+            <a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/openai.svg" alt="" />ChatGPT Business $25</a>
+            <a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/cursor.svg" alt="" />Cursor Teams $40</a>
+            <a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/genspark.svg" alt="" />Genspark Plus $25</a>
+            <a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/claude.svg" alt="" />Claude Pro $20</a>
+          </nav>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>4 / 16</span></footer>
+      </section>
+
+      <!-- 05 목표 -->
+      <section class="slide" data-slide="5">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Goal</p>
+            <h2 class="title">개선 목표</h2>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="metric-row">
+            <div class="metric-card">
+              <p class="metric-card__val">0건</p>
+              <p class="metric-card__label">개인 사후카드<br />정산</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__val">8→5</p>
+              <p class="metric-card__label">월 청구서<br />건수</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__val">WS 1</p>
+              <p class="metric-card__label">플랫폼당<br />Workspace</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__val">30일</p>
+              <p class="metric-card__label">미사용 seat<br />회수 기준</p>
+            </div>
+          </div>
+          <div class="flow" style="margin-top: 20px">
+            <div class="flow__step flow__step--good">
+              <p class="flow__num">01</p>
+              <h4>법인카드만</h4>
+              <p>개인카드 결제 금지</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step flow__step--good">
+              <p class="flow__num">02</p>
+              <h4>seat 1:1</h4>
+              <p>실사용자 배정</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step flow__step--good">
+              <p class="flow__num">03</p>
+              <h4>Admin 관리</h4>
+              <p>초대·제거 통제</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step flow__step--good">
+              <p class="flow__num">04</p>
+              <h4>월 1회 보고</h4>
+              <p>청구서 5건 요약</p>
+            </div>
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>5 / 16</span></footer>
+      </section>
+
+      <!-- 06 Workspace -->
+      <section class="slide" data-slide="6">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Concept</p>
+            <h2 class="title">Workspace란?</h2>
+            <p class="subtitle">회사 전용 AI 팀 공간 — 개인 구독이 아니라 회사 명의로 묶어 관리</p>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content content-split">
+          <div class="grid-2" style="grid-template-columns:1fr">
+            <article class="card card--plain">
+              <p class="label">개별 Pro</p>
+              <h3>직원마다 개인 사무실</h3>
+              <ul class="bullets">
+                <li>계정·청구가 사람마다 분리</li>
+                <li>법인카드 등록해도 건별 관리</li>
+                <li>퇴사 시 계정이 개인에게 남음</li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="label">Workspace</p>
+              <h3>회사 공용 사무실 1개</h3>
+              <ul class="bullets">
+                <li>회사 명의 + seat로 직원 초대</li>
+                <li>결제 1건, Admin이 멤버 관리</li>
+                <li>퇴사 시 seat 제거로 즉시 차단</li>
+              </ul>
+            </article>
+          </div>
+          <div class="diagram-stack">
+            <div class="ws-diagram">
+              <div class="ws-diagram__head">ChatGPT Business Workspace · 법인카드 1건</div>
+              <div class="ws-diagram__seats">
+                <div class="ws-seat">seat 1<span>백엔드</span></div>
+                <div class="ws-seat">seat 2<span>백엔드</span></div>
+                <div class="ws-seat">seat 3<span>백엔드</span></div>
+              </div>
+            </div>
+            <div class="ws-diagram">
+              <div class="ws-diagram__head">Cursor Teams · 법인카드 1건</div>
+              <div class="ws-diagram__seats" style="grid-template-columns:1fr 1fr">
+                <div class="ws-seat">seat 1<span>프론트</span></div>
+                <div class="ws-seat">seat 2<span>프론트</span></div>
+              </div>
+            </div>
+            <p class="chart-note">OpenAI로 Claude·Cursor까지 일괄 관리는 불가 — 플랫폼마다 Workspace 별도</p>
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>6 / 16</span></footer>
+      </section>
+
+      <!-- 07 비교 -->
+      <section class="slide" data-slide="7">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Decision</p>
+            <h2 class="title">개별 계정 vs 법인 Workspace</h2>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="compare">
+            <div class="compare-box compare-box--bad">
+              <h3>개별 Pro 유지</h3>
+              <ul>
+                <li>청구 건별 분리 (최대 8건)</li>
+                <li>중앙 Admin Console 없음</li>
+                <li>월말 정산·영수증 대조 반복</li>
+                <li>퇴사 시 회수 어려움</li>
+              </ul>
+            </div>
+            <div class="compare-box compare-box--good">
+              <h3>법인 Workspace (권장)</h3>
+              <ul>
+                <li>플랫폼당 청구 1건</li>
+                <li>관리자가 seat 추가/삭제</li>
+                <li>사후정산 구조 제거 가능</li>
+                <li>퇴사·미사용 즉시 대응</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-split" style="margin-top:16px">
+            <div class="chart-panel">
+              <p class="chart-panel__title">월 청구 건수</p>
+              <div class="scenario-chart">
+                <div class="scenario-row">
+                  <span class="scenario-row__label">개별 Pro</span>
+                  <div class="scenario-row__track"><div class="scenario-row__fill" style="width:100%;background:#ef4444">8건</div></div>
+                  <span class="scenario-row__val">8</span>
+                </div>
+                <div class="scenario-row">
+                  <span class="scenario-row__label">Workspace</span>
+                  <div class="scenario-row__track"><div class="scenario-row__fill scenario-row__fill--a" style="width:62.5%">5건</div></div>
+                  <span class="scenario-row__val">5</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-panel">
+              <p class="chart-panel__title">Admin 통제</p>
+              <div class="admin-matrix-viz" style="grid-template-columns:1fr 1fr">
+                <div class="admin-viz-card admin-viz-card--partial"><h4>개별</h4><div class="admin-gauge"><div class="admin-gauge__fill admin-gauge__fill--40"></div></div><p>수동 회수</p></div>
+                <div class="admin-viz-card admin-viz-card--full"><h4>Workspace</h4><div class="admin-gauge"><div class="admin-gauge__fill admin-gauge__fill--100"></div></div><p>즉시 Remove</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>7 / 16</span></footer>
+      </section>
+
+      <!-- 08 해결방안 핵심 -->
+      <section class="slide" data-slide="8">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Solution Core</p>
+            <h2 class="title">해결방안 핵심 — 관리자가 seat를 주고 뺀다</h2>
+            <p class="subtitle">개인 Plus는 회수 불가 · Business/Teams는 Admin이 멤버·접근권한 통제</p>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="flow" style="margin-bottom: 18px">
+            <div class="flow__step flow__step--good">
+              <p class="flow__num">부여</p>
+              <h4>Invite</h4>
+              <p>이메일 초대 → seat +1</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step">
+              <p class="flow__num">사용</p>
+              <h4>Member</h4>
+              <p>워크스페이스 접근 ON</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step flow__step--bad">
+              <p class="flow__num">회수</p>
+              <h4>Remove</h4>
+              <p>접근 즉시 차단</p>
+            </div>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <p class="label">ChatGPT</p>
+              <h3>Business Admin</h3>
+              <p>Settings → Members에서 초대/제거 · Owner·Admin 권한</p>
+            </article>
+            <article class="card">
+              <p class="label">Cursor</p>
+              <h3>Teams Dashboard</h3>
+              <p>cursor.com/dashboard · Invite / Remove</p>
+            </article>
+            <article class="card">
+              <p class="label">Claude·Genspark</p>
+              <h3>Pro 수동 관리</h3>
+              <p>중앙 Admin 없음 · 계정 대장·구독 해지로 회수</p>
+            </article>
+          </div>
+          <div class="callout">
+            <strong>OpenAI Admin은 ChatGPT seat만 관리.</strong> Claude·Cursor·Genspark는 플랫폼별로 따로 운영
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>8 / 16</span></footer>
+      </section>
+
+      <!-- 09 플랫폼별 -->
+      <section class="slide" data-slide="9">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Solution</p>
+            <h2 class="title">플랫폼별 권장 관리 방식</h2>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="table-wrap">
+            <table class="detailed">
+              <thead>
+                <tr>
+                  <th>플랫폼</th>
+                  <th>권장 구조</th>
+                  <th>seat</th>
+                  <th>월 비용</th>
+                  <th>Admin 부여</th>
+                  <th>Admin 회수</th>
+                  <th>청구</th>
+                  <th>법인카드</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="platform-cell"><img src="logos/openai.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>ChatGPT</strong><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="plan-link" title="OpenAI ChatGPT 요금">openai.com/chatgpt/pricing ↗</a></div></td>
+                  <td>Business Workspace 1개</td>
+                  <td class="num">3</td>
+                  <td class="num num--strong">$75</td>
+                  <td>Owner/Admin 이메일 초대</td>
+                  <td>Remove member (즉시)</td>
+                  <td class="num">1건</td>
+                  <td>Card A</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/cursor.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Cursor</strong><a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Cursor 요금">cursor.com/pricing ↗</a></div></td>
+                  <td>Teams 1개</td>
+                  <td class="num">2</td>
+                  <td class="num num--strong">$80</td>
+                  <td>Dashboard Invite</td>
+                  <td>Remove (주기 말 과금)</td>
+                  <td class="num">1건</td>
+                  <td>Card A</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/genspark.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Genspark</strong><a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="plan-link" title="Genspark 멤버십 요금">genspark.ai/membership ↗</a></div></td>
+                  <td>Plus 법인 1계정</td>
+                  <td class="num">1</td>
+                  <td class="num num--strong">$25</td>
+                  <td>계정 생성·공유</td>
+                  <td>Plans → Cancel</td>
+                  <td class="num">1건</td>
+                  <td>Card B</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/claude.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Claude</strong><a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Anthropic Claude 요금">anthropic.com/pricing ↗</a></div></td>
+                  <td>Pro 2계정 (법인카드)</td>
+                  <td class="num">2</td>
+                  <td class="num num--strong">$40</td>
+                  <td>계정별 가입</td>
+                  <td>구독 해지</td>
+                  <td class="num">2건</td>
+                  <td>Card B</td>
+                </tr>
+                <tr class="total">
+                  <td>합계</td>
+                  <td>8 seat · 4 플랫폼</td>
+                  <td class="num">8</td>
+                  <td class="num num--strong">$220/월</td>
+                  <td colspan="2">중앙 Admin 2 + 수동 2</td>
+                  <td class="num">5건</td>
+                  <td>2장</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>9 / 16</span></footer>
+      </section>
+
+      <!-- 10 ChatGPT Business 관리자 권한 -->
+      <section class="slide" data-slide="10">
+        <header class="topbar">
+          <div>
+            <p class="kicker">OpenAI · ChatGPT Business</p>
+            <h2 class="title">관리자가 멤버 권한을 주고 뺄 수 있는가?</h2>
+            <p class="subtitle">→ <strong>예.</strong> Owner/Admin이 초대·제거·역할 변경 가능 (백엔드 3명)</p>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="grid-2">
+            <article class="card card--plain">
+              <p class="label">역할 구조</p>
+              <ul class="bullets">
+                <li><strong>Owner</strong> — <code>platform@habb.com</code> · 빌링·플랜·멤버·설정 전체</li>
+                <li><strong>Admin</strong> — 멤버 초대/제거·일부 설정</li>
+                <li><strong>Member</strong> — 백엔드 개발자 (ChatGPT 사용)</li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="label">Admin이 하는 일</p>
+              <ul class="bullets">
+                <li><strong>초대</strong> → seat +1, 사용 권한 부여</li>
+                <li><strong>Remove member</strong> → 접근 즉시 차단</li>
+                <li>Settings → Members에서 관리</li>
+                <li>CSV 일괄 초대 가능</li>
+              </ul>
+            </article>
+          </div>
+          <div class="callout">
+            <strong>개인 Plus 3개와 차이:</strong> 퇴사해도 개인 계정에 남지 않음.
+            Admin이 Remove하면 <strong>즉시 워크스페이스 접근 종료</strong>.
+            (세부 기능별 RBAC·SCIM 자동퇴사는 Enterprise급 — Business 3명 규모엔 불필요)
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>10 / 16</span></footer>
+      </section>
+
+      <!-- 11 플랫폼별 Admin 권한 매트릭스 -->
+      <section class="slide" data-slide="11">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Admin Matrix</p>
+            <h2 class="title">플랫폼별 관리자 권한 상세</h2>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="admin-matrix-viz" style="margin-bottom: 16px">
+            <div class="admin-viz-card admin-viz-card--full">
+              <h4>ChatGPT</h4>
+              <div class="admin-gauge"><div class="admin-gauge__fill admin-gauge__fill--100"></div></div>
+              <p>Admin Console<br />즉시 Remove</p>
+            </div>
+            <div class="admin-viz-card admin-viz-card--full">
+              <h4>Cursor</h4>
+              <div class="admin-gauge"><div class="admin-gauge__fill admin-gauge__fill--100"></div></div>
+              <p>Dashboard<br />Invite/Remove</p>
+            </div>
+            <div class="admin-viz-card admin-viz-card--partial">
+              <h4>Genspark</h4>
+              <div class="admin-gauge"><div class="admin-gauge__fill admin-gauge__fill--40"></div></div>
+              <p>중앙 Admin 없음<br />계정 대장 수동</p>
+            </div>
+            <div class="admin-viz-card admin-viz-card--partial">
+              <h4>Claude</h4>
+              <div class="admin-gauge"><div class="admin-gauge__fill admin-gauge__fill--40"></div></div>
+              <p>중앙 Admin 없음<br />Team은 5인↑</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="compact">
+              <thead>
+                <tr>
+                  <th>플랫폼</th>
+                  <th>seat 부여</th>
+                  <th>seat 회수</th>
+                  <th>관리 화면</th>
+                  <th>비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="platform-cell"><img src="logos/openai.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>ChatGPT Business</strong><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="plan-link">openai.com/chatgpt/pricing ↗</a></div></td>
+                  <td>이메일 초대 · CSV 일괄</td>
+                  <td>Remove member (즉시)</td>
+                  <td>chatgpt.com → Settings → Members</td>
+                  <td>Owner/Admin · RBAC·SCIM은 Enterprise</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/cursor.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Cursor Teams</strong><a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link">cursor.com/pricing ↗</a></div></td>
+                  <td>Dashboard Invite Members</td>
+                  <td>Remove (결제주기 말까지 과금)</td>
+                  <td>cursor.com/dashboard</td>
+                  <td>Admin Dashboard · SSO는 Enterprise</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/genspark.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Genspark Plus</strong><a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="plan-link">genspark.ai/membership ↗</a></div></td>
+                  <td>계정 생성·공유</td>
+                  <td>Plans → Cancel subscription</td>
+                  <td>genspark.ai → Plan</td>
+                  <td>중앙 Admin 없음 · Team=Enterprise</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/claude.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Claude Pro</strong><a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link">anthropic.com/pricing ↗</a></div></td>
+                  <td>계정별 anthropic.com 가입</td>
+                  <td>구독 해지·비밀번호 회수</td>
+                  <td>중앙 Admin Console 없음</td>
+                  <td>Team은 5 seat↑ 시 검토 ($25/seat)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            <strong>중요:</strong> OpenAI Business Admin은 <strong>ChatGPT seat만</strong> 관리.
+            Claude·Cursor·Genspark는 <strong>각 플랫폼 Admin(또는 수동)</strong>으로 따로 관리해야 함.
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>11 / 16</span></footer>
+      </section>
+
+      <!-- 12 법인카드 -->
+      <section class="slide" data-slide="12">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Billing</p>
+            <h2 class="title">법인카드 구성</h2>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="content-split">
+            <article class="card">
+              <p class="label">Card A · IT/개발</p>
+              <h3>개발 SaaS 통합</h3>
+              <div class="cost-stack" style="margin: 12px 0">
+                <div class="cost-stack__bar">
+                  <div class="cost-stack__seg" style="width:48%;background:#ff560b">GPT $75</div>
+                  <div class="cost-stack__seg" style="width:52%;background:#e65100">Cursor $80</div>
+                </div>
+              </div>
+              <ul class="bullets">
+                <li>ChatGPT Business ×3</li>
+                <li>Cursor Teams ×2</li>
+                <li>월 청구 <strong>2건</strong></li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="label">Card B · 전사</p>
+              <h3>업무 SaaS</h3>
+              <div class="cost-stack" style="margin: 12px 0">
+                <div class="cost-stack__bar">
+                  <div class="cost-stack__seg" style="width:38%;background:#6366f1">Claude $40</div>
+                  <div class="cost-stack__seg" style="width:38%;background:#8B5CF6">Genspark $25</div>
+                </div>
+              </div>
+              <ul class="bullets">
+                <li>Claude Pro ×2</li>
+                <li>Genspark Plus ×1</li>
+                <li>월 청구 <strong>2~3건</strong></li>
+              </ul>
+            </article>
+          </div>
+          <div class="callout">공용 관리 <strong>platform@habb.com</strong> · 실사용자는 <strong>@habb.com</strong> 개인 메일 · 개인카드 사후정산 금지</div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>12 / 16</span></footer>
+      </section>
+
+      <!-- 13 월간연간 -->
+      <section class="slide slide--dense" data-slide="13">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Billing Cycle</p>
+            <h2 class="title">월간 vs 연간 — 플랫폼별 비용·환불</h2>
+            <p class="subtitle">하비비 8 seat 기준 · 연간 = 월간×12×(1−할인율) ÷ 12</p>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="table-wrap">
+            <table class="detailed">
+              <thead>
+                <tr>
+                  <th>플랫폼</th>
+                  <th>권장 플랜</th>
+                  <th>seat</th>
+                  <th>월간 $/월</th>
+                  <th>연간÷12 $/월</th>
+                  <th>절감</th>
+                  <th>할인율</th>
+                  <th>환불 정책</th>
+                  <th>권고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="platform-cell"><img src="logos/openai.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>ChatGPT</strong><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="plan-link" title="OpenAI ChatGPT 요금">openai.com/chatgpt/pricing ↗</a></div></td>
+                  <td>Business</td>
+                  <td class="num">3</td>
+                  <td class="num num--strong">$75</td>
+                  <td class="num">$60</td>
+                  <td class="num">−$15</td>
+                  <td class="num">20%</td>
+                  <td>중도 환불 거의 없음</td>
+                  <td>6개월 후 연간</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/cursor.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Cursor</strong><a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Cursor 요금">cursor.com/pricing ↗</a></div></td>
+                  <td>Teams</td>
+                  <td class="num">2</td>
+                  <td class="num num--strong">$80</td>
+                  <td class="num">$64</td>
+                  <td class="num">−$16</td>
+                  <td class="num">20%</td>
+                  <td>연 72h / 월 24h</td>
+                  <td>월간 유지</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/genspark.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Genspark</strong><a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="plan-link" title="Genspark 멤버십 요금">genspark.ai/membership ↗</a></div></td>
+                  <td>Plus</td>
+                  <td class="num">1</td>
+                  <td class="num num--strong">$25</td>
+                  <td class="num">$20</td>
+                  <td class="num">−$5</td>
+                  <td class="num">20%</td>
+                  <td>Cancel anytime</td>
+                  <td>월간 유지</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/claude.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Claude</strong><a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Anthropic Claude 요금">anthropic.com/pricing ↗</a></div></td>
+                  <td>Pro</td>
+                  <td class="num">2</td>
+                  <td class="num num--strong">$40</td>
+                  <td class="num">$34</td>
+                  <td class="num">−$6</td>
+                  <td class="num">15%</td>
+                  <td>한국 7일(최초)</td>
+                  <td>월간 유지</td>
+                </tr>
+                <tr class="total">
+                  <td>합계</td>
+                  <td>—</td>
+                  <td class="num">8</td>
+                  <td class="num num--strong">$220</td>
+                  <td class="num">$178</td>
+                  <td class="num">−$42</td>
+                  <td>—</td>
+                  <td colspan="2">초기 6개월 전 플랫폼 월간 → GPT만 연간 검토</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <nav class="pricing-links" aria-label="공식 요금·환불 정책">
+            <span class="pricing-links__label">요금제</span>
+            <a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/openai.svg" alt="" />ChatGPT</a>
+            <a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/cursor.svg" alt="" />Cursor</a>
+            <a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/genspark.svg" alt="" />Genspark</a>
+            <a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/claude.svg" alt="" />Claude</a>
+          </nav>
+          <nav class="pricing-links pricing-links--refs" aria-label="환불·약관">
+            <span class="pricing-links__label">환불·약관</span>
+            <a href="https://openai.com/policies/terms-of-use" target="_blank" rel="noopener noreferrer" class="pricing-links__chip">OpenAI 약관 ↗</a>
+            <a href="https://cursor.com/docs/account/billing" target="_blank" rel="noopener noreferrer" class="pricing-links__chip">Cursor Billing ↗</a>
+            <a href="https://www.genspark.ai/helpcenter/membership-plans" target="_blank" rel="noopener noreferrer" class="pricing-links__chip">Genspark Plans ↗</a>
+            <a href="https://support.anthropic.com/" target="_blank" rel="noopener noreferrer" class="pricing-links__chip">Claude Support ↗</a>
+          </nav>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>13 / 16</span></footer>
+      </section>
+
+      <!-- 14 비용 -->
+      <section class="slide slide--dense" data-slide="14">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Cost</p>
+            <h2 class="title">종합 비용 상세 (1USD≈₩1,400)</h2>
+            <p class="subtitle">플랫폼별 산출 + 시나리오 비교</p>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="table-wrap" style="margin-bottom:12px">
+            <table class="detailed">
+              <thead>
+                <tr>
+                  <th>플랫폼</th>
+                  <th>플랜</th>
+                  <th>seat</th>
+                  <th>단가</th>
+                  <th>월 USD</th>
+                  <th>월 KRW</th>
+                  <th>연÷12 USD</th>
+                  <th>연÷12 KRW</th>
+                  <th>청구</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="platform-cell"><img src="logos/openai.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>ChatGPT</strong><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="plan-link" title="OpenAI ChatGPT 요금">openai.com/chatgpt/pricing ↗</a></div></td>
+                  <td>Business</td>
+                  <td class="num">3</td>
+                  <td class="num">$25</td>
+                  <td class="num num--strong">$75</td>
+                  <td class="num">₩105,000</td>
+                  <td class="num">$60</td>
+                  <td class="num">₩84,000</td>
+                  <td class="num">1</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/cursor.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Cursor</strong><a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Cursor 요금">cursor.com/pricing ↗</a></div></td>
+                  <td>Teams</td>
+                  <td class="num">2</td>
+                  <td class="num">$40</td>
+                  <td class="num num--strong">$80</td>
+                  <td class="num">₩112,000</td>
+                  <td class="num">$64</td>
+                  <td class="num">₩89,600</td>
+                  <td class="num">1</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/genspark.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Genspark</strong><a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="plan-link" title="Genspark 멤버십 요금">genspark.ai/membership ↗</a></div></td>
+                  <td>Plus</td>
+                  <td class="num">1</td>
+                  <td class="num">$25</td>
+                  <td class="num num--strong">$25</td>
+                  <td class="num">₩35,000</td>
+                  <td class="num">$20</td>
+                  <td class="num">₩28,000</td>
+                  <td class="num">1</td>
+                </tr>
+                <tr>
+                  <td class="platform-cell"><img src="logos/claude.svg" alt="" class="platform-logo" /><div class="platform-cell__info"><strong>Claude</strong><a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="plan-link" title="Anthropic Claude 요금">anthropic.com/pricing ↗</a></div></td>
+                  <td>Pro</td>
+                  <td class="num">2</td>
+                  <td class="num">$20</td>
+                  <td class="num num--strong">$40</td>
+                  <td class="num">₩56,000</td>
+                  <td class="num">$34</td>
+                  <td class="num">₩47,600</td>
+                  <td class="num">2</td>
+                </tr>
+                <tr class="total">
+                  <td colspan="4">A. 전부 월간 (권장) / B. 전부 연간 / C. GPT만 연간 / D. 전부 개인</td>
+                  <td class="num">$220 / $178 / $205 / $165</td>
+                  <td class="num">₩308K / ₩249K / ₩287K / ₩231K</td>
+                  <td colspan="3">예산 권장 ₩350,000 내외 (환율·카드 수수료 포함)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cost-stack">
+            <div class="cost-stack__bar">
+              <div class="cost-stack__seg" style="width:34%;background:#10A37F">GPT $75</div>
+              <div class="cost-stack__seg" style="width:36%;background:#0B0B0B">Cursor $80</div>
+              <div class="cost-stack__seg" style="width:18%;background:#D97757">Claude $40</div>
+              <div class="cost-stack__seg" style="width:11%;background:#8B5CF6">GS $25</div>
+            </div>
+          </div>
+          <p class="chart-note">시나리오 C ($205): ChatGPT 연간 $60 + Cursor·Genspark·Claude 월간 $145 · Cursor Pro 절충 시 $180 (₩252K, Admin 포기)</p>
+          <nav class="pricing-links" aria-label="공식 요금 페이지">
+            <span class="pricing-links__label">요금제</span>
+            <a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/openai.svg" alt="" />ChatGPT Business</a>
+            <a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/cursor.svg" alt="" />Cursor Teams</a>
+            <a href="https://www.genspark.ai/membership-benefits-lp" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/genspark.svg" alt="" />Genspark Plus</a>
+            <a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="pricing-links__chip"><img src="logos/claude.svg" alt="" />Claude Pro</a>
+          </nav>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>14 / 16</span></footer>
+      </section>
+
+      <!-- 15 운영 -->
+      <section class="slide slide--dense" data-slide="15">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Operations</p>
+            <h2 class="title">운영 정책 &amp; seat 관리 프로세스</h2>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="flow">
+            <div class="flow__step">
+              <p class="flow__num">01</p>
+              <h4>팀장 신청</h4>
+              <p>seat 필요 사유</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step">
+              <p class="flow__num">02</p>
+              <h4>IT 확인</h4>
+              <p>중복·정책 검토</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step flow__step--good">
+              <p class="flow__num">03</p>
+              <h4>Admin 초대</h4>
+              <p>GPT/Cursor Invite</p>
+            </div>
+            <div class="flow__arrow">→</div>
+            <div class="flow__step">
+              <p class="flow__num">04</p>
+              <h4>대장 등록</h4>
+              <p>계정 목록 갱신</p>
+            </div>
+          </div>
+          <article class="card account-policy">
+            <p class="label">계정·메일 정책</p>
+            <h3>habb.com 공용 계정 — 개인 Gmail 비권장</h3>
+            <ul class="bullets bullets--compact">
+              <li><strong>공용 관리 1개</strong> — <code>platform@habb.com</code> 으로 플랫폼 4개 Workspace Owner · 법인카드 등록</li>
+              <li><strong>실사용자 8명</strong> — 각자 @habb.com 개인 메일로 Member 초대 (seat 1:1)</li>
+              <li><strong>관리자 계정 ≠ seat 수</strong> — 공용 1 + 사용자 8이면 충분, 플랫폼마다 관리자를 늘릴 필요 없음</li>
+              <li><strong>보안</strong> — 공용 비번·복구코드는 1Password 등 금고 · MFA 필수 · 퇴사 당일 seat Remove</li>
+            </ul>
+          </article>
+          <div class="grid-2" style="margin-top:14px">
+            <article class="card">
+              <p class="label">중앙 Admin</p>
+              <h3>ChatGPT · Cursor</h3>
+              <ul class="bullets">
+                <li>Invite / Remove — 즉시 접근 차단</li>
+                <li>퇴사 당일 seat 제거 필수</li>
+              </ul>
+            </article>
+            <article class="card card--plain">
+              <p class="label">수동 관리</p>
+              <h3>Claude · Genspark</h3>
+              <ul class="bullets">
+                <li>구독 해지·비밀번호 회수</li>
+                <li>월말 청구서 5건 + 요약표 1장</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>15 / 16</span></footer>
+      </section>
+
+      <!-- 16 로드맵 -->
+      <section class="slide" data-slide="16">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Roadmap</p>
+            <h2 class="title">4주 전환 일정</h2>
+          </div>
+          <div class="brand"><img src="logo-symbol.svg" alt="" class="brand-mark" /></div>
+        </header>
+        <div class="content">
+          <div class="timeline">
+            <div class="timeline__week">
+              <div class="timeline__dot"></div>
+              <h4>1주차</h4>
+              <p>계정 대장 작성<br />개인카드 중단 공지</p>
+            </div>
+            <div class="timeline__week">
+              <div class="timeline__dot"></div>
+              <h4>2주차</h4>
+              <p>ChatGPT Business<br />Cursor Teams 생성</p>
+            </div>
+            <div class="timeline__week">
+              <div class="timeline__dot"></div>
+              <h4>3주차</h4>
+              <p>Genspark·Claude<br />법인카드 전환</p>
+            </div>
+            <div class="timeline__week">
+              <div class="timeline__dot"></div>
+              <h4>4주차</h4>
+              <p>개인 카드 해지<br />월말 보고 시범</p>
+            </div>
+          </div>
+        </div>
+        <footer class="footer-note"><span>하비비 AI 구독 통합 관리</span><span>16 / 16</span></footer>
+      </section>
+
+    </main>
+
+    <script src="deck.js"></script>
+  </body>
+</html>
